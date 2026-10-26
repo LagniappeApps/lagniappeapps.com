@@ -2,13 +2,13 @@
 
 Guidance: `company/legal/reviews/2026-10-26-company-site-legal-pages.md` (company repo): §0–§4 (809a58c) and the "Re-review of EDITS.md" + §R (c4e281c), plus CEO updates of Oct 26 (app name not locked; Sentry not configured).
 Source: habit-tracker `master` @ adf0013, `product/legal/privacy.md`, `terms.md` (verbatim copies here as `habit-tracker-*.md`).
-Full diff: `diff legal/habit-tracker-privacy.md content/privacy-habit-tracker.md` (same for terms).
+Full diff: `diff legal/habit-tracker-privacy.md content/privacy-checkalong.md` (same for terms).
 
 **App name:** (superseded Oct 26, see "App name locked: Checkalong" below) not locked (CEO). No product name is published. `[APP NAME]` → "our habit tracker app (the "App")" on first mention, then "the App". Titles: "Privacy Policy: our habit tracker app", "Terms of Use: our habit tracker app" (re-review). Neutral slugs, kept permanently: `/privacy/habit-tracker/`, `/terms/habit-tracker/`. The build and CI fail if the working name appears anywhere in `_site/`.
 
 **Waitlist removed (re-review §4).** Verified Oct 26: no Terraform state anywhere on the box (only the committed provider lock files), no `AZURE_*` (or any) Actions secrets/variables/environments on lagniappe-habit-tracker or lagniappe-app-002, and both "Site Deploy" runs (Oct 14) skipped the Azure deploy step because the token secret doesn't exist. No Azure resources, no waitlist table, no sign-ups. Add a waitlist section back as a dated policy update before any form goes live. Brevo, Azure and Microsoft are therefore no longer mentioned anywhere.
 
-## Habit tracker privacy (`content/privacy-habit-tracker.md`)
+## Checkalong privacy (`content/privacy-checkalong.md`)
 | Item | Change |
 | --- | --- |
 | §2.1 | Removed the DRAFT/lawyer banner |
@@ -40,7 +40,7 @@ Full diff: `diff legal/habit-tracker-privacy.md content/privacy-habit-tracker.md
 
 When the Developer confirms region, retention, "Prevent Storing of IP Addresses" and `sendDefaultPii: false` (§R), swap in the specific text with a version-history line, before any release ships with `EXPO_PUBLIC_SENTRY_DSN` set.
 
-## Habit tracker terms (`content/terms-habit-tracker.md`)
+## Checkalong terms (`content/terms-checkalong.md`)
 | Item | Change |
 | --- | --- |
 | §2.1 | Removed the DRAFT/lawyer banner |
