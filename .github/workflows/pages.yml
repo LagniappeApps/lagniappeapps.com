@@ -1,0 +1,61 @@
+name: pages
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+      # GO_LIVE_DATE is a repository variable (Settings > Secrets and variables > Actions > Variables),
+      # set to the real go-live date. --strict fails the build on any placeholder left.
+      - name: Build
+        env:
+          GO_LIVE_DATE: ${{ vars.GO_LIVE_DATE }}
+        run: node scripts/build.mjs --strict
+      - name: No scripts or third-party resources
+        run: |
+          if grep -rIl --include='*.html' -e '<script' -e '<iframe' _site; then
+            echo "::error::scripts/iframes are not allowed on this site"
+            exit 1
+          fi
+      - name: App name not locked (working name must not appear)
+        run: |
+          if grep -rIil -e 'tiny[[:space:]]*wins' _site; then
+            echo "::error::the working app name must not appear on the site until the name is locked"
+            exit 1
+          fi
+      - if: github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: _site
+
+  deploy:
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v5
