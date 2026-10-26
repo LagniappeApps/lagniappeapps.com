@@ -19,13 +19,21 @@ const pages = [
   { path: '', title: 'Home', src: 'home.md' },
   { path: 'contact', title: 'Contact', src: 'contact.md' },
   { path: 'privacy', title: 'Privacy', src: 'privacy.md' },
-  { path: 'privacy/habit-tracker', title: 'Privacy Policy: our habit tracker app', src: 'privacy-habit-tracker.md' },
+  { path: 'privacy/checkalong', title: 'Privacy Policy: Checkalong', src: 'privacy-checkalong.md' },
   { path: 'terms', title: 'Terms', src: 'terms.md' },
-  { path: 'terms/habit-tracker', title: 'Terms of Use: our habit tracker app', src: 'terms-habit-tracker.md' },
+  { path: 'terms/checkalong', title: 'Terms of Use: Checkalong', src: 'terms-checkalong.md' },
   { path: 'support', title: 'Support', src: 'support.md' },
   { path: 'delete', title: 'Delete your data', src: 'delete.md' },
   { path: 's', title: 'Open in the app', src: 's.md', noindex: true },
 ];
+// Old URLs kept working forever (app builds and store listings may still point at them).
+// GitHub Pages has no server redirects: each one is a static meta-refresh page with a
+// canonical link and a plain fallback link. No scripts, same CSP as every other page.
+const redirects = [
+  { path: 'privacy/habit-tracker', to: 'privacy/checkalong', title: 'Privacy Policy: Checkalong' },
+  { path: 'terms/habit-tracker', to: 'terms/checkalong', title: 'Terms of Use: Checkalong' },
+];
+const SITE = 'https://lagniappeapps.com';
 const nav = [
   ['', 'Home'],
   ['contact', 'Contact'],
@@ -164,6 +172,33 @@ ${links}
 `;
 }
 
+function redirect({ path, to, title }) {
+  const up = '../'.repeat(path.split('/').length);
+  const rel = `${up}${to}/`;
+  const abs = `${SITE}/${to}/`;
+  return `<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<meta name="robots" content="noindex, follow">
+<meta http-equiv="refresh" content="0; url=${esc(rel)}">
+<link rel="canonical" href="${esc(abs)}">
+<title>${esc(title)} | LAGNIAPPE SOLUTIONS LLC</title>
+<link rel="stylesheet" href="${up}styles.css">
+</head>
+<body>
+<main id="main">
+<h1>${esc(title)}</h1>
+<p>This page has moved to <a href="${esc(rel)}">${esc(abs)}</a>.</p>
+</main>
+</body>
+</html>
+`;
+}
+
 rmSync(out, { recursive: true, force: true });
 mkdirSync(out, { recursive: true });
 const problems = [];
@@ -176,8 +211,14 @@ for (const p of pages) {
   writeFileSync(join(dir, 'index.html'), html);
   console.log(`wrote _site/${p.path ? `${p.path}/` : ''}index.html`);
 }
+for (const r of redirects) {
+  const dir = join(out, r.path);
+  mkdirSync(dir, { recursive: true });
+  writeFileSync(join(dir, 'index.html'), redirect(r));
+  console.log(`wrote _site/${r.path}/index.html (redirect to /${r.to}/)`);
+}
 cpSync(join(root, 'public'), out, { recursive: true });
-// The app name isn't locked: no product name may appear anywhere in the built site.
+// App #1's locked name is Checkalong (allowed). The old working name must never appear.
 const banned = [/tiny\s*wins/i];
 const bannedHits = [];
 const walk = (d) =>

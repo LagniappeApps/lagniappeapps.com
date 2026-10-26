@@ -6,9 +6,9 @@ meta tag and a CI check). Hosted free on GitHub Pages.
 
 ## Layout
 
-- `content/*.md`: page text. `privacy-habit-tracker.md` and `terms-habit-tracker.md` are Legal's
-  habit tracker drafts with the company-site edits applied (see `legal/EDITS.md`). The app name
-  isn't locked, so the build fails if the working app name appears anywhere in `_site/`.
+- `content/*.md`: page text. `privacy-checkalong.md` and `terms-checkalong.md` are Legal's
+  habit tracker drafts with the company-site edits applied (see `legal/EDITS.md`). App #1's name
+  is locked as Checkalong; the build fails if the old working app name appears anywhere in `_site/`.
 - `legal/`: verbatim copies of the source drafts (habit-tracker `master` @ adf0013) for diffing.
 - `public/`: static files copied as-is (`styles.css`, `404.html`, `CNAME`, `robots.txt`).
 - `scripts/build.mjs`: renders `content/` to `_site/` (Node 22, no dependencies).
@@ -33,7 +33,8 @@ and at `https://lagniappeapps.com/` (only `404.html` uses root paths).
 
 Bump "Last updated", add a line to the policy's "Version history", and for material
 changes also set a new "Effective" date (not earlier than the publish date). Legal
-re-reviews the text diff first. URLs never change: `/privacy/<app-slug>/`, `/terms/<app-slug>/`.
+re-reviews the text diff first. URLs are `/privacy/<app-slug>/`, `/terms/<app-slug>/`; if a slug
+ever changes, keep the old URL as a redirect page (`redirects` in `scripts/build.mjs`).
 
 ## Pages
 
@@ -43,8 +44,10 @@ re-reviews the text diff first. URLs never change: `/privacy/<app-slug>/`, `/ter
 | `/contact/` | Email only |
 | `/support/` | Support placeholder |
 | `/privacy/` | Company privacy hub (website hosting, emails, rights, contact) |
-| `/privacy/habit-tracker/` | Habit tracker app privacy policy (App Store / Play URL) |
+| `/privacy/checkalong/` | Checkalong privacy policy (App Store / Play URL) |
+| `/privacy/habit-tracker/` | Redirect page → `/privacy/checkalong/` (meta refresh + canonical + fallback link, no scripts) |
 | `/terms/` | Terms hub |
-| `/terms/habit-tracker/` | Habit tracker app Terms of Use |
+| `/terms/checkalong/` | Checkalong Terms of Use |
+| `/terms/habit-tracker/` | Redirect page → `/terms/checkalong/` |
 | `/delete/` | Data deletion (Legal guidance §4) |
 | `/s/` | Static placeholder for future in-app links. Has no scripts, so it can never read, log or send the URL fragment (`#t=..&k=..`); `noindex`, `no-referrer`. |

@@ -34,10 +34,10 @@ jobs:
             echo "::error::scripts/iframes are not allowed on this site"
             exit 1
           fi
-      - name: App name not locked (working name must not appear)
+      - name: Old working app name must not appear (locked name is Checkalong)
         run: |
           if grep -rIil -e 'tiny[[:space:]]*wins' _site; then
-            echo "::error::the working app name must not appear on the site until the name is locked"
+            echo "::error::the old working app name must not appear on the site (use Checkalong)"
             exit 1
           fi
       - if: github.event_name != 'pull_request'

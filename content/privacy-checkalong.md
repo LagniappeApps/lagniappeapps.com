@@ -1,11 +1,11 @@
-# Privacy Policy: our habit tracker app
+# Privacy Policy: Checkalong
 
 **Effective:** {{GO_LIVE_DATE}}  
 **Last updated:** {{GO_LIVE_DATE}}
 
-This policy covers our habit tracker app (the "App") as it works today. If a future version adds features that collect new data, we'll update this policy and tell you in the App before they take effect.
+This policy covers Checkalong (the "App") as it works today. If a future version adds features that collect new data, we'll update this policy and tell you in the App before they take effect.
 
-Our habit tracker app (the "App") is made by LAGNIAPPE SOLUTIONS LLC ("we", "us"). We built it to keep your information on your phone. This policy explains what that means in practice.
+Checkalong (the "App") is made by LAGNIAPPE SOLUTIONS LLC ("we", "us"). We built it to keep your information on your phone. This policy explains what that means in practice.
 
 ## The short version
 

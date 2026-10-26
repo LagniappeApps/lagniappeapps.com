@@ -10,6 +10,6 @@ To help us answer quickly, please include:
 
 Please don't send passwords, payment details or other sensitive information.
 
-Billing and refunds for purchases go through Apple or Google. See the [Terms of Use for our habit tracker app](../terms/habit-tracker/) for how to manage or cancel a subscription and request a refund.
+Billing and refunds for purchases go through Apple or Google. See the [Terms of Use for Checkalong](../terms/checkalong/) for how to manage or cancel a subscription and request a refund.
 
 Help articles for each app will be added here when the apps launch.

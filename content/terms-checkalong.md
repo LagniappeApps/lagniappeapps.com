@@ -1,9 +1,9 @@
-# Terms of Use: our habit tracker app
+# Terms of Use: Checkalong
 
 **Effective:** {{GO_LIVE_DATE}}  
 **Last updated:** {{GO_LIVE_DATE}}
 
-Hi. These terms are the agreement between you and LAGNIAPPE SOLUTIONS LLC ("we", "us") for our habit tracker app (the "App"). By downloading or using the App, you agree to them. If you don't agree, please don't use the App.
+Hi. These terms are the agreement between you and LAGNIAPPE SOLUTIONS LLC ("we", "us") for Checkalong (the "App"). By downloading or using the App, you agree to them. If you don't agree, please don't use the App.
 
 ## 1. Apple and Google store terms
 

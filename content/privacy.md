@@ -11,7 +11,7 @@ LAGNIAPPE SOLUTIONS LLC is a small mobile app studio in the United States. You c
 
 ## App privacy policies
 
-- [Privacy Policy: our habit tracker app](habit-tracker/)
+- [Privacy Policy: Checkalong](checkalong/)
 
 ## This website {#website}
 

@@ -4,7 +4,7 @@ Guidance: `company/legal/reviews/2026-10-26-company-site-legal-pages.md` (compan
 Source: habit-tracker `master` @ adf0013, `product/legal/privacy.md`, `terms.md` (verbatim copies here as `habit-tracker-*.md`).
 Full diff: `diff legal/habit-tracker-privacy.md content/privacy-habit-tracker.md` (same for terms).
 
-**App name:** not locked (CEO). No product name is published. `[APP NAME]` → "our habit tracker app (the "App")" on first mention, then "the App". Titles: "Privacy Policy: our habit tracker app", "Terms of Use: our habit tracker app" (re-review). Neutral slugs, kept permanently: `/privacy/habit-tracker/`, `/terms/habit-tracker/`. The build and CI fail if the working name appears anywhere in `_site/`.
+**App name:** (superseded Oct 26, see "App name locked: Checkalong" below) not locked (CEO). No product name is published. `[APP NAME]` → "our habit tracker app (the "App")" on first mention, then "the App". Titles: "Privacy Policy: our habit tracker app", "Terms of Use: our habit tracker app" (re-review). Neutral slugs, kept permanently: `/privacy/habit-tracker/`, `/terms/habit-tracker/`. The build and CI fail if the working name appears anywhere in `_site/`.
 
 **Waitlist removed (re-review §4).** Verified Oct 26: no Terraform state anywhere on the box (only the committed provider lock files), no `AZURE_*` (or any) Actions secrets/variables/environments on lagniappe-habit-tracker or lagniappe-app-002, and both "Site Deploy" runs (Oct 14) skipped the Azure deploy step because the token secret doesn't exist. No Azure resources, no waitlist table, no sign-ups. Add a waitlist section back as a dated policy update before any form goes live. Brevo, Azure and Microsoft are therefore no longer mentioned anywhere.
 
@@ -76,3 +76,13 @@ Source: company `legal/reviews/2026-10-26-privacy-crash-off-v1.md` @ 1f6999f, §
 
 ## Legal F3, Oct 26
 - `/privacy/` hub "Emails you send us": Legal's F3 text applied verbatim (Google Workspace (Google LLC); purpose = reply only; legal basis GDPR Art. 6(1)(f) legitimate interest; US processing under the EU-U.S. DPF and its UK and Swiss extensions, or SCCs; link to https://policies.google.com/privacy). It replaces the earlier "Our email is handled in Google Workspace (Gmail)…", "We use it only to reply and to fix problems." and "Where GDPR applies, we rely on our legitimate interest…" sentences. Kept: the opening "If you email us…" sentence, the retention sentence and the Delete your data link. Google LLC stays in "Service providers". The section heading supplies F3's "Emails you send us." lead-in.
+
+## App name locked: Checkalong (Oct 26), naming-only edit, needs Legal's quick re-check
+Jeff locked App #1's name as **Checkalong** (store title "Checkalong: Habits & Reminders"). This is a naming-only edit: no data-practice, legal-basis, retention or rights text changed. **Legal: please do a quick re-check of the substitutions below.**
+- Files renamed: `content/privacy-habit-tracker.md` → `content/privacy-checkalong.md`, `content/terms-habit-tracker.md` → `content/terms-checkalong.md`.
+- Privacy: title "Privacy Policy: our habit tracker app" → "Privacy Policy: Checkalong"; "This policy covers our habit tracker app (the "App")" → "This policy covers Checkalong (the "App")"; "Our habit tracker app (the "App") is made by" → "Checkalong (the "App") is made by".
+- Terms: title → "Terms of Use: Checkalong"; "for our habit tracker app (the "App")" → "for Checkalong (the "App")". §4 "The App is a habit tool." unchanged.
+- `/delete`: title "Delete your data: Checkalong (by Lagniappe Solutions LLC)"; "**Checkalong doesn't have accounts.**"; heading "To delete your Checkalong data"; privacy link → `/privacy/checkalong/`.
+- Hubs, support and home: link text "Privacy Policy: Checkalong", "Terms of Use: Checkalong", "Terms of Use for Checkalong"; home "Our first app, Checkalong, is a habit tracker that keeps your habits on your phone…" and "Checkalong: coming soon" (no store links).
+- URLs: new canonical `/privacy/checkalong/` and `/terms/checkalong/`. The old `/privacy/habit-tracker/` and `/terms/habit-tracker/` stay as static redirect pages (meta refresh, canonical link, fallback link, no scripts). This supersedes "Neutral slugs, kept permanently" above.
+- Not changed: the store title "Checkalong: Habits & Reminders" isn't used in the policy text (the App is named "Checkalong"). Legal: say if the policies should use the full store title instead.
