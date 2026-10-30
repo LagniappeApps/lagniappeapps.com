@@ -109,7 +109,7 @@ We may update these terms. We'll change the effective date above, and for big ch
 
 ## 16. Governing law
 
-These terms are governed by the laws of the State of Florida, USA, without regard to its conflict-of-law rules. Any dispute will be handled in the state or federal courts located in Seminole County, Florida. If you are a consumer in the EU, EEA, UK, Switzerland, or another country whose law gives you mandatory protections or the right to sue in your local courts, nothing in these terms takes those away.
+These terms are governed by the laws of the State of Florida, USA, without regard to its conflict-of-law rules. Any dispute will be handled in the state courts located in Seminole County, Florida, or in the United States District Court for the Middle District of Florida. If you are a consumer in the EU, EEA, UK, Switzerland, or another country whose law gives you mandatory protections or the right to sue in your local courts, nothing in these terms takes those away.
 
 ## 17. Other details
 
